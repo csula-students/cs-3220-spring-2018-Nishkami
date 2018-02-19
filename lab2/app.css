@@ -6,7 +6,9 @@ input[type=text]{
 	overflow: visible;
     text-align: left;
 }
-
+body {
+    background-image: url("theme.png");
+}
 
 
 .flex-container {
@@ -40,5 +42,20 @@ h1
 }
 .block{
 	width:50%;
+}
+#n1{
+	background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+#n1:hover {
+    background-color: white;
+    color: black;
 }
 

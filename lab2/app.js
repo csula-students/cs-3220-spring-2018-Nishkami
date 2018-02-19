@@ -1,47 +1,47 @@
 window.incrementalGame = {
         state: {
             counter: 0
-            var index = document.querySelector('#cs');
-			var btn = document.querySelector('#cs2');
         }
     }; 
 
+class PubSub {
+    constructor () {
+        this.subscribers = [];
+    }
 
+    // subscribe allows a new subscriber to listen for changes by providing
+    // callback function in the parameter
+    subscribe (fn) {
+        this.subscribers.push(fn);
+    }
 
-const pubSub = new PubSub();
-    window.state = {
-        index: -1
-    };
-    const colors = ['--red', '--blue', '--green'];
-    var index = -1; // nothing to begin with
-    const dom = document.querySelector('.rgb-square');
-    const btn = document.querySelector('button');
-    btn.addEventListener('click', () => {
-        pubSub.publish(window.state.index);
-    });
+    // one can publish any data to subscribers
+    publish (data) {
+        this.subscribers.forEach(subscriber => {
+            subscriber(data);
+        });
+    }
+}
+
+	const pubSub = new PubSub();
+    
+    var index = document.querySelector('#cs');
+	const btn = document.querySelector('#n1');
+	
+    var index1 = 0;
+	
     pubSub.subscribe(action => {
-        if (action.type !== 'CHANGE_COLOR') {
+        if (action.type !== 'CTR') {
             return;
         }
-        const oldColor = getColor(colors, index);
-        if (oldColor) {
-            dom.classList.remove(oldColor);
-        }
-        index ++;
-        index = index % colors.length;
-        window.state.index = index;
-        const newColor = getColor(colors, index);
-        dom.classList.add(newColor);
+        index1 ++;
+        window.incrementalGame.state.counter = index1;
+        index.innerHTML = window.incrementalGame.state.counter;
+        console.log(window.incrementalGame.state.counter);
     });
-    dom.addEventListener('click', function() {
+    btn.addEventListener('click', function() {
         pubSub.publish({
-            type: 'CHANGE_COLOR',
-            payload: window.state.index
+            type: 'CTR',
+            payload: window.incrementalGame.state.counter
         });
     });
-    function getColor (colors, index) {
-        if (index < 0) {
-            return '';
-        }
-        return colors[index];
-    }
