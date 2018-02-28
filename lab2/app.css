@@ -1,0 +1,61 @@
+input[type=text]{
+	background:black;
+	color:white;
+	width: 100%;
+	overflow-y: scroll;
+	overflow: visible;
+    text-align: left;
+}
+body {
+    background-image: url("theme.png");
+}
+
+
+.flex-container {
+  display: flex;
+   flex-direction: row;
+}
+.r1{
+	width: 30%;
+}
+#d1 {
+    width: 30%;
+    border: 1px solid black;
+    margin: 25px;
+     text-align: center;
+}
+h1
+{
+	color:black;
+	font-family: Blippo, fantasy;
+	 font-style: oblique;
+	 font-size: 60px;
+	
+}
+.f1{
+	display: flex;
+	flex-direction: row; 
+}
+
+.block1{
+	align: right;
+}
+.block{
+	width:50%;
+}
+#n1{
+	background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+#n1:hover {
+    background-color: white;
+    color: black;
+}
+
