@@ -1,11 +1,7 @@
 import constants from '../constants';
 
 export default class Generator {
-	/**
-	 * Create a new generator based on the meta object passing in
-	 * @constructor
-	 * @param {object} meta - meta object for constructing generator
-	 */
+	
 	constructor (meta) {
 		this.type = meta.type;
 		this.name = meta.name;
